@@ -1,3 +1,5 @@
+import React from "react";
+
 type FeatureCardProps = {
     icon: React.ReactNode;
     title: string;

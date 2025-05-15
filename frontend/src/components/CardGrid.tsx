@@ -1,4 +1,5 @@
 // components/CardGrid.tsx
+import React from "react";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { FaFileAlt, FaFolderOpen } from "react-icons/fa";
 import { ReactNode } from "react";

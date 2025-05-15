@@ -1,4 +1,5 @@
 import FeatureCard from "./FeatureCard";
+import React from "react";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { HiOutlineDocumentText } from "react-icons/hi";
 import { MdWorkOutline } from "react-icons/md";
