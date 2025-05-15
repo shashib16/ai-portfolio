@@ -1,4 +1,6 @@
 // GlowingCircle.tsx
+import React from 'react';
+
 export function GlowingCircle() {
   return (
     <div className="relative flex items-center justify-center w-5 h-5">

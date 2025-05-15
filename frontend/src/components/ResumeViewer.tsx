@@ -1,3 +1,4 @@
+import React from "react";
 import { HiOutlineDocumentDownload } from "react-icons/hi";
 
 export default function ResumeViewer() {

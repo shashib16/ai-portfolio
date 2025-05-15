@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { GlowingCircle } from "./GlowingCircle";
 import askProfessional, { speakText } from '../api/askProfessional';
 
@@ -86,7 +86,7 @@ export default function TalkToAI({
 
             setTimeout(() => setHightTalkToAI(false), 3000);
         }
-    }, []);
+    }, [isProcessingAIRequest,setHightTalkToAI, setIsTalkingToAI]);
 
 
     const startListening = () => {
