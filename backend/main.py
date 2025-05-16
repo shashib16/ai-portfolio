@@ -6,7 +6,7 @@ app = FastAPI()  # <- this must exist
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*",'http://localhost:5173/'],
+    allow_origins=['https://shashi-aiportfolio.netlify.app/'],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
