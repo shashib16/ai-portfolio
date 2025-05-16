@@ -3,7 +3,7 @@ import React from "react";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { FaFileAlt, FaFolderOpen } from "react-icons/fa";
 import { ReactNode } from "react";
-import { GITHUB_IN, LINKED_IN } from "../utils/constant";
+import { GITHUB_IN, LINKED_IN, RESUME_NAME } from "../utils/constant";
 
 interface CardProps {
   icon: ReactNode;
@@ -43,7 +43,7 @@ export const CardGrid = () => {
     {
       icon: <FaFileAlt />,
       title: "Resume",
-      link: "/shashi_resume_software_engineer.pdf",
+      link: `${RESUME_NAME}`,
     },
   ];
 
