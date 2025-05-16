@@ -11,8 +11,8 @@ const projects = [
   {
     title: "Portfolio Site",
     description: "Fully responsive and AI-integrated portfolio.",
-    tech: ["Vite", "React", "Tailwind"],
-    link: "#"
+    tech: ["React", "Vite", "Gemini","voiceMaker", "GPT-4", "Tailwind"],
+    link: "https://github.com/shashib16/ai-portfolio"
   }
   // add more projects here
 ];
