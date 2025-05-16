@@ -26,7 +26,6 @@ export default function TalkToAI({
         setIsProcessingAIRequest(true);
         try {
             const response = await askProfessional(finalText);
-            console.log("🧠 AI Response:", response);
     
             // TODO: Display in UI
         } catch (err) {
@@ -68,6 +67,13 @@ export default function TalkToAI({
             }
 
         };
+
+        navigator.mediaDevices
+        .getUserMedia({ audio: true })
+        .then(() => recognition.start())
+        .catch((err) => console.error("Mic access denied:", err));
+
+
 
         recognition.onerror = (event: SpeechRecognitionErrorEvent) => {
             console.error("Error occurred in recognition:", event.error);

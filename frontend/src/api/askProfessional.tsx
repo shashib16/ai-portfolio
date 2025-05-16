@@ -18,7 +18,6 @@ async function askProfessional(text: string) {
 
 
   if (response.ok) {
-    console.log("AI Response:", output);
     const text = output.reply;
     speakText(text);
   } else {
