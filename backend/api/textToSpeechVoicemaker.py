@@ -7,8 +7,8 @@ from fastapi.responses import StreamingResponse
 from io import BytesIO
 app = FastAPI()
 
-VOICEMAKER_API_KEY = "5f32cb10-2f0d-11f0-a380-5d1083dbb84d"
-VOICEMAKER_API_URL = "https://developer.voicemaker.in/voice/api"
+VOICEMAKER_API_KEY = os.getenv("VOICEMAKER_API_KEY")
+VOICEMAKER_API_URL = os.getenv("VOICEMAKER_API_URL")
 AUDIO_SAVE_DIR = "audio_files"
 # Ensure audio directory exists
 os.makedirs(AUDIO_SAVE_DIR, exist_ok=True)
