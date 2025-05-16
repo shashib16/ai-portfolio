@@ -4,7 +4,7 @@ export  function speakText(text: string){
   speechSynthesis.speak(utterance);
 }
 async function askProfessional(text: string) {
-  const response = await fetch("https://ai-portfolio-drrt.onrender.com//api/ask", {
+  const response = await fetch("https://ai-portfolio-drrt.onrender.com/api/ask", {
     method: "POST",
     headers: {
       // "Accept": "audio/mpeg",
