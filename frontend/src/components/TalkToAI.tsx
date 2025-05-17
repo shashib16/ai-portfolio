@@ -15,9 +15,9 @@ export default function TalkToAI({
     const recognitionRef = useRef<SpeechRecognition | null>(null);
     const [isProcessingAIRequest, setIsProcessingAIRequest] = useState(false);
 
-    const handleTalkToAIWithTranscript = async (finalText: string) => {
-        console.log({finalText})
-        if(finalText.length > 1000) {
+    const handleTalkToAIWithTranscript = async (finalText: string, isProcessingAIRequest: boolean) => {
+        console.log({ finalText })
+        if (finalText.length > 1000) {
             const utterance = new SpeechSynthesisUtterance("Please ask a shorter question.");
             utterance.lang = 'en-US';
             speechSynthesis.speak(utterance);
@@ -25,8 +25,8 @@ export default function TalkToAI({
         }
         setIsProcessingAIRequest(true);
         try {
-            const response = await askProfessional(finalText);
-    
+            const response = await askProfessional(finalText, isProcessingAIRequest);
+
             // TODO: Display in UI
         } catch (err) {
             console.error("❌ Error talking to AI:", err);
@@ -34,7 +34,7 @@ export default function TalkToAI({
             setIsProcessingAIRequest(false);
         }
     };
-    
+
 
     useEffect(() => {
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -42,6 +42,9 @@ export default function TalkToAI({
             alert("SpeechRecognition not supported in this browser.");
             return;
         }
+
+        if (!isTalkingToAI)
+            return;
 
         const recognition = new SpeechRecognition();
         recognitionRef.current = recognition;
@@ -61,17 +64,19 @@ export default function TalkToAI({
                     finalTranscript += event.results[i][0].transcript;
                 }
             }
+            console.log({ finalTranscript })
 
-            if (finalTranscript && !isProcessingAIRequest) {
-                handleTalkToAIWithTranscript(finalTranscript);
+
+            if (finalTranscript) {
+                handleTalkToAIWithTranscript(finalTranscript, isProcessingAIRequest);
             }
 
         };
 
         navigator.mediaDevices
-        .getUserMedia({ audio: true })
-        .then(() => recognition.start())
-        .catch((err) => console.error("Mic access denied:", err));
+            .getUserMedia({ audio: true })
+            .then(() => recognition.start())
+            .catch((err) => console.error("Mic access denied:", err));
 
 
 
@@ -93,22 +98,22 @@ export default function TalkToAI({
             setTimeout(() => setHightTalkToAI(false), 3000);
         }
         return () => {
-            recognition.stop();
+            recognitionRef?.current?.stop();
             recognitionRef.current = null;
         };
-    }, [isProcessingAIRequest,setHightTalkToAI, setIsTalkingToAI]);
+    }, [isTalkingToAI,isProcessingAIRequest, setHightTalkToAI, setIsTalkingToAI]);
 
 
     const startListening = () => {
         console.log("Start Listening", { isTalkingToAI });
-      
+
         speakText("Hi, I am AI. How can I help you?");
 
         if (isProcessingAIRequest) {
             console.warn("⏳ Already processing an AI request");
             return;
         }
-        
+
         if (isTalkingToAI) {
             setIsTalkingToAI(false);
             recognitionRef.current?.stop();
@@ -120,9 +125,9 @@ export default function TalkToAI({
     };
     return (
         <div className="relative inline-block">
-           
+
             <button
-                onClick={startListening}
+                onClick={() => startListening()}
                 type="button"
                 className={`
                     relative h-10 border border-gray-300 bg-white text-black px-6 py-2 rounded-lg hover:bg-gray-100 transition-all
@@ -138,6 +143,7 @@ export default function TalkToAI({
 
                         <div
                             onClick={(e) => {
+                                console.log("Stop Listening");
                                 e.stopPropagation();
                                 setIsTalkingToAI(false);
                                 recognitionRef.current?.stop();
