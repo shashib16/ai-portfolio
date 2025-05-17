@@ -52,7 +52,7 @@ async def ask_question(payload: Question):
     try:
         chat = model.start_chat(history=[])
         prompt = (
-            f"You are a helpful assistant. Based on the resume context below, answer the user's question.\n\n"
+            f"You are a helpful assistant. Candidate have more than 3 year of experience and when he says stop tell, oh please ask next question Based on the resume context below, answer the user's question.\n\n"
             f"Resume:\n{resume_context}\n\n"
             f"Question: {question}"
         )

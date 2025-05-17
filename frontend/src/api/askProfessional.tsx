@@ -3,9 +3,18 @@ export  function speakText(text: string){
   utterance.lang = 'en-US';
   speechSynthesis.speak(utterance);
 }
-async function askProfessional(text: string) {
+async function askProfessional(text: string, isProcessingAIRequest: boolean) {
+  console.log({text, isProcessingAIRequest})
+  const currentController = new AbortController();
+  if(isProcessingAIRequest) {
+    currentController.abort();
+    console.log("Aborting previous request");
+    // window.speechSynthesis.cancel();
+  }
+
   const response = await fetch("https://ai-portfolio-drrt.onrender.com/api/ask", {
     method: "POST",
+    signal: currentController.signal,
     headers: {
       // "Accept": "audio/mpeg",
       "Content-Type": "application/json"

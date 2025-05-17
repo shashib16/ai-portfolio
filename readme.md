@@ -37,8 +37,7 @@ ai-portfolio/
 - Python
 - FastAPI
 - Uvicorn (ASGI server)
-- OpenAI API or other AI integrations (optional)
-- SQLite / PostgreSQL (optional depending on data persistence)
+- Gemini
 
 ---
 
