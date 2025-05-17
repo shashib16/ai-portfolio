@@ -6,13 +6,15 @@ const projects = [
     title: "AI Resume Generator",
     description: "Generate resumes based on LinkedIn profile with GPT.",
     tech: ["React", "GPT-4", "Tailwind"],
-    link: "#"
+    link: "#",
+    ribbon: "In Progress"
   },
   {
     title: "Portfolio Site",
     description: "Fully responsive and AI-integrated portfolio.",
     tech: ["React", "Vite", "Gemini","voiceMaker", "GPT-4", "Tailwind"],
-    link: "https://github.com/shashib16/ai-portfolio"
+    link: "https://github.com/shashib16/ai-portfolio",
+    ribbon: "Done"
   }
   // add more projects here
 ];

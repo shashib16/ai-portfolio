@@ -34,6 +34,7 @@ export const CardGrid = () => {
       icon: <FaFolderOpen />,
       title: "Projects",
       link: "#projects",
+      description: 'in progress',
     },
     {
       icon: <FaGithub />,
@@ -43,7 +44,7 @@ export const CardGrid = () => {
     {
       icon: <FaFileAlt />,
       title: "Resume",
-      link: `${RESUME_NAME}`,
+      link: `https://drive.google.com/file/d/18GT3EPWwh0B1PP9typ5AOP5RhUeTvAGj/view?usp=drive_link`,
     },
   ];
 
