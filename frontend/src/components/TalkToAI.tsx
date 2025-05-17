@@ -92,6 +92,10 @@ export default function TalkToAI({
 
             setTimeout(() => setHightTalkToAI(false), 3000);
         }
+        return () => {
+            recognition.stop();
+            recognitionRef.current = null;
+        };
     }, [isProcessingAIRequest,setHightTalkToAI, setIsTalkingToAI]);
 
 
