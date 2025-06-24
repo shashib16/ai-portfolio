@@ -19,7 +19,7 @@ router = APIRouter()
 class Question(BaseModel):
     question: str
 
-def load_resume_text(pdf_path="assets/shashi_software_engineer.pdf"):
+def load_resume_text(pdf_path="assets/shashiFrontendEngineer.pdf"):
     script_dir = os.path.dirname(os.path.abspath(__file__))
     full_path = os.path.join(script_dir, "..", pdf_path)
     
