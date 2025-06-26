@@ -27,3 +27,4 @@ MANIFEST
 .env.production.local
 .vercel
 .DS_Store
+python-ai-portfolio.pem
