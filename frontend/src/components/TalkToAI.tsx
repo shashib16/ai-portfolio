@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import  { useEffect, useRef, useState } from 'react';
 import { GlowingCircle } from "./GlowingCircle";
 import askProfessional, { speakText } from '../api/askProfessional';
 
@@ -25,7 +25,7 @@ export default function TalkToAI({
         }
         setIsProcessingAIRequest(true);
         try {
-            const response = await askProfessional(finalText, isProcessingAIRequest);
+            await askProfessional(finalText, isProcessingAIRequest);
 
             // TODO: Display in UI
         } catch (err) {
@@ -129,7 +129,7 @@ export default function TalkToAI({
             <button
                 onClick={() => startListening()}
                 type="button"
-                className={`
+                className={`d
                     relative h-10 border border-gray-300 bg-white text-black px-6 py-2 rounded-lg hover:bg-gray-100 transition-all
                     ${hightTalkToAI ? "animate-pulse ring-2 ring-gray-400" : ""}
                     ${isTalkingToAI ? 'w-30' : ''}

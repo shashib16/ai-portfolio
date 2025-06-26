@@ -1,4 +1,3 @@
-import React from "react";
 import { HiOutlineDocumentDownload } from "react-icons/hi";
 import { RESUME_NAME } from "../utils/constant";
 
