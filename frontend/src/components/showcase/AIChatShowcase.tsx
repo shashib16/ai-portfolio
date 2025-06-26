@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Send, Mic, MicOff, Volume2 } from 'lucide-react';
-import InProgressIndicator from './inprogress';
+import InProgressIndicator from './Inprogress';
 
 interface ChatMessage {
   id: number;

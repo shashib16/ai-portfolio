@@ -53,7 +53,7 @@ const ProjectsWithCompanyWork: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-white mb-4">
-            Shashi's <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Work</span>
+            My <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Projects</span>
           </h2>
           <p className="text-gray-400 text-lg">Professional work, personal projects</p>
         </div>
