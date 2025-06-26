@@ -1,39 +1,13 @@
-import './App.css'
-import React from 'react';
-import { CardGrid } from './components/CardGrid';
-import Hero from './components/Hero'
-import ProjectsGrid from './components/ProjectsGrid';
-import ResumeViewer from './components/ResumeViewer';
+import { JSX } from 'react';
+import './App.css';
+import ShowcaseApp from './components/showcase/ShowcaseApp';
 
-/*
-🎙 Glowing button should listen to the mic and record audio
-📝 Transcribe the audio to text
-🤖 Send the text to the AI API
-🔊 Speak out any response from the AI API
-🕐 Handle short pauses — treat them as part of one prompt and send only the latest spoken text
-✂️ If character limit exceeds, speak a warning: “Please ask a shorter question.”
-
-*/
-
-function App() {
-  
-  
+function App(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white text-gray-900 font-sans">
-
-      <Hero />
-
-      <CardGrid /> 
-
-      <ResumeViewer />
-      
-      <ProjectsGrid />
-      <footer className="py-6 text-center">
-        <p className="text-sm text-gray-600">© {new Date().getFullYear()} Shashi. All rights reserved.</p>
-      </footer>
-    </main>
+    <div className="w-full min-h-screen bg-gray-900 m-0 p-0">
+      <ShowcaseApp />
+    </div>
   );
 }
 
-
-export default App
+export default App;
